@@ -1,0 +1,53 @@
+:host {
+    min-height: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+div.container {
+    min-height: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    margin: 0;
+    border-radius: 0;
+}
+
+div.left {
+    height: 100%;
+    top: 0px;
+    bottom: 0px;
+    border-radius: 0;
+    width: 440px;
+    z-index: 0;
+}
+
+div.middle {
+    position: absolute;
+    height: 100%;
+    width: calc(100% - 440px);
+    border-radius: 0;
+    left: 440px;
+}
+
+app-navbar {
+    left: 0px;
+    width: 80px;
+}
+
+app-side-me {
+    left: 80px;
+    width: 360px;
+    height: 100%;
+}
+
+router-outlet {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    margin: 0%;
+}

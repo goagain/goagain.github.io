@@ -1,0 +1,94 @@
+<title>Conditional Probability</title>
+<h1 id="container">
+    Conditional Probability
+</h1>
+<div>
+    <div id="inputs">
+        <p>Number of A: <input [(ngModel)]="m" (change)="onClickChangeSize()" type="number" placeholder="Number of A"></p>
+        <p>Number of B: <input [(ngModel)]="n" (change)="onClickChangeSize()" type="number" placeholder="Number of B"></p>
+    </div>
+    <!-- <p>
+        <button (click)="onClickChangeSize()">Change</button>
+        <button (click)="onClickInitialize()">Randomly Initialize</button>
+    </p> -->
+    <div>
+        <table id='grids'>
+            <thead>
+                <tr>
+                    <td></td>
+                    <td *ngFor='let column of data[0]; index as j;'>
+                        A{{j}}
+                    </td>
+                    <td>Total</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor='let row of data; index as i;trackBy:trackByIndex;'>
+                    <td>B{{i}}</td>
+                    <td *ngFor='let value of row; index as j; trackBy:trackByIndex;'>
+                        <div class="input-field">
+                            <input type="radio" name="number-group" class="radio-button" id="cell-{{i}}-{{j}}" (click)="onSelected(i,j)">
+                            <!-- </div> -->
+                            <div class="number-field">
+                                <input [(ngModel)]="data[i][j] " type="number">
+                                <br>
+                                <label class="values" for="cell-{{i}}-{{j}}">
+                                    {{data[i][j]/getSum()}}
+                                </label>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="number-field">
+                            <label class="values">
+                                <input value="{{getRowSum(i)}}" type="number" readonly>
+                                <br>
+                                {{getRowSum(i)/getSum()}}
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>Total</td>
+                    <td *ngFor='let column of data[0]; index as j;'>
+                        <div class="number-field">
+                            <label class="values">
+                                <input value="{{getColumnSum(j)}}" type="number" readonly>
+                                <br>
+                                {{getColumnSum(j)/getSum()}}
+                            </label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="number-field">
+                            <input value="{{getSum()}}" type="number" readonly>
+                            <br>
+                            <label class="values">
+                                1
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <div id="bottom">
+        <p>
+            P(A{{selected_j}}) = {{getColumnSum(selected_j)}}/{{getSum()}} = {{getColumnSum(selected_j)/getSum()}}
+        </p>
+        <p>
+            P(B{{selected_i}}) = {{getRowSum(selected_i)}}/{{getSum()}} = {{getRowSum(selected_i)/getSum()}}
+        </p>
+        <p>
+            P(A{{selected_j}}&B{{selected_i}}) = {{data[selected_i][selected_j]}}/{{getSum()}} = {{data[selected_i][selected_j]/getSum()}}
+        </p>
+        <p>
+            P(A{{selected_j}}|B{{selected_i}}) = {{data[selected_i][selected_j]}}/{{getRowSum(selected_i)}} = {{data[selected_i][selected_j]/getRowSum(selected_i)}}
+        </p>
+        <p>
+            P(B{{selected_i}}|A{{selected_j}}) = {{data[selected_i][selected_j]}}/{{getColumnSum(selected_j)}} = {{data[selected_i][selected_j]/getColumnSum(selected_j)}}
+        </p>
+    </div>
+</div>

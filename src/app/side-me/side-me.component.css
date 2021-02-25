@@ -1,0 +1,50 @@
+:host {
+    position: fixed;
+    width: 360px;
+    padding-top: 50px;
+    background-color: #04b4e0;
+    height: 100%;
+    align-content: center;
+    z-index: 1;
+}
+
+.header-photo {
+    margin: 0 auto 30px;
+    width: 180px;
+}
+
+.header-photo img {
+    max-width: 180px;
+    background-color: white;
+    border: 3px solid #fff;
+    border-radius: 300px;
+}
+
+.header-titles {
+    color: white;
+    text-align: center;
+}
+
+.header-titles h2 {
+    font-size: 36px;
+    font-weight: 600;
+    margin: 5px 0 7px;
+    line-height: 1.2em;
+}
+
+.header-titles h4 {
+    font-size: 18px;
+    font-weight: 300;
+    margin: 5px;
+    line-height: 1.2em;
+}
+
+.social-media-buttons {
+    color: white;
+    align-content: center;
+    text-align: center;
+}
+
+.fab {
+    color: white;
+}

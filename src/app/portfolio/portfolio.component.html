@@ -1,0 +1,12 @@
+<h2>Portfolio</h2>
+
+<mat-grid-list cols="3">
+    <mat-grid-tile *ngFor='let work of portfolios'>
+        <mat-card>
+            <a mat-button href={{work.path}}>
+                <mat-card-title>{{work.name}}</mat-card-title>
+                <img mat-card-image src="{{work.imgPath}}" alt={{work.name}}>
+            </a>
+        </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>
